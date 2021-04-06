@@ -12,6 +12,9 @@ namespace LibraryApplication
 {
     public partial class LibraryApplicationForm : Form
     {
+        List<string> books = new List<string>();
+        List<string> popular = new List<string>();
+
         public LibraryApplicationForm()
         {
             InitializeComponent();
@@ -19,7 +22,45 @@ namespace LibraryApplication
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            //Identify coordinates on form where books should go. Depending on their position in the sorted list, each book is assigned a different set of coordinates. When the submit button is clicked, they should be moved to their respective coordinates.
+            bool pop = checkPopular.Checked;
+            int popularLength = popular.Count;
+            int booksLength = books.Count;
+            Label[] labels = { lblPopular1, lblPopular2, lblPopular3, lblBook1, lblBook2, lblBook3, lblBook4, lblBook5, lblBook6 };
+
+            if (pop)
+            {
+                popular.Add(txtTitle.Text);
+                popular.Sort();
+
+                for (int i = 0; i < popularLength; i++)
+                {
+                    if (i > 2)
+                    {
+                        throw new Exception("You can only add up to 3 popular books.");
+                    }
+                    if (popular[i] != null)
+                    {
+                        labels[i].Text = popular[i];
+                    }
+                }
+            }
+            else
+            {
+                books.Add(txtTitle.Text);
+                books.Sort();
+
+                for (int i = 3; i < booksLength; i++)
+                {
+                    if (i > 8)
+                    {
+                        throw new Exception("You can only add up to 6 books that aren't popular.");
+                    }
+                    if (books[i] != null)
+                    {
+                        labels[i].Text = books[i];
+                    }
+                }
+            }
         }
     }
 }
