@@ -56,6 +56,17 @@
             this.btnSubmit = new System.Windows.Forms.Button();
             this.lblInstructions = new System.Windows.Forms.Label();
             this.checkPopular = new System.Windows.Forms.CheckBox();
+            this.txtIsbn = new System.Windows.Forms.TextBox();
+            this.lblEnterIsbn = new System.Windows.Forms.Label();
+            this.lblIsbn1 = new System.Windows.Forms.Label();
+            this.lblIsbn2 = new System.Windows.Forms.Label();
+            this.lblIsbn3 = new System.Windows.Forms.Label();
+            this.lblIsbn4 = new System.Windows.Forms.Label();
+            this.lblIsbn5 = new System.Windows.Forms.Label();
+            this.lblIsbn6 = new System.Windows.Forms.Label();
+            this.lblIsbn7 = new System.Windows.Forms.Label();
+            this.lblIsbn8 = new System.Windows.Forms.Label();
+            this.lblIsbn9 = new System.Windows.Forms.Label();
             this.popularGroupbox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -73,6 +84,9 @@
             // popularGroupbox
             // 
             this.popularGroupbox.BackColor = System.Drawing.Color.Peru;
+            this.popularGroupbox.Controls.Add(this.lblIsbn3);
+            this.popularGroupbox.Controls.Add(this.lblIsbn2);
+            this.popularGroupbox.Controls.Add(this.lblIsbn1);
             this.popularGroupbox.Controls.Add(this.lblPopular3);
             this.popularGroupbox.Controls.Add(this.lblPopular2);
             this.popularGroupbox.Controls.Add(this.lblPopular1);
@@ -155,6 +169,9 @@
             // bookshelf1Groupbox
             // 
             this.bookshelf1Groupbox.BackColor = System.Drawing.Color.Peru;
+            this.bookshelf1Groupbox.Controls.Add(this.lblIsbn4);
+            this.bookshelf1Groupbox.Controls.Add(this.lblIsbn5);
+            this.bookshelf1Groupbox.Controls.Add(this.lblIsbn6);
             this.bookshelf1Groupbox.Controls.Add(this.lblBook3);
             this.bookshelf1Groupbox.Controls.Add(this.lblBook1);
             this.bookshelf1Groupbox.Controls.Add(this.lblBook2);
@@ -237,6 +254,9 @@
             // bookshelf2Groupbox
             // 
             this.bookshelf2Groupbox.BackColor = System.Drawing.Color.Peru;
+            this.bookshelf2Groupbox.Controls.Add(this.lblIsbn7);
+            this.bookshelf2Groupbox.Controls.Add(this.lblIsbn8);
+            this.bookshelf2Groupbox.Controls.Add(this.lblIsbn9);
             this.bookshelf2Groupbox.Controls.Add(this.lblBook5);
             this.bookshelf2Groupbox.Controls.Add(this.lblBook4);
             this.bookshelf2Groupbox.Controls.Add(this.lblBook6);
@@ -344,7 +364,7 @@
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(1113, 412);
+            this.btnSubmit.Location = new System.Drawing.Point(1113, 432);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(75, 23);
             this.btnSubmit.TabIndex = 7;
@@ -363,18 +383,117 @@
             // checkPopular
             // 
             this.checkPopular.AutoSize = true;
-            this.checkPopular.Location = new System.Drawing.Point(994, 329);
+            this.checkPopular.Location = new System.Drawing.Point(994, 385);
             this.checkPopular.Name = "checkPopular";
             this.checkPopular.Size = new System.Drawing.Size(181, 21);
             this.checkPopular.TabIndex = 9;
             this.checkPopular.Text = "Check if book is popular";
             this.checkPopular.UseVisualStyleBackColor = true;
             // 
+            // txtIsbn
+            // 
+            this.txtIsbn.Location = new System.Drawing.Point(994, 341);
+            this.txtIsbn.Name = "txtIsbn";
+            this.txtIsbn.Size = new System.Drawing.Size(194, 22);
+            this.txtIsbn.TabIndex = 10;
+            // 
+            // lblEnterIsbn
+            // 
+            this.lblEnterIsbn.AutoSize = true;
+            this.lblEnterIsbn.Location = new System.Drawing.Point(991, 321);
+            this.lblEnterIsbn.Name = "lblEnterIsbn";
+            this.lblEnterIsbn.Size = new System.Drawing.Size(81, 17);
+            this.lblEnterIsbn.TabIndex = 11;
+            this.lblEnterIsbn.Text = "Enter ISBN:";
+            // 
+            // lblIsbn1
+            // 
+            this.lblIsbn1.AutoSize = true;
+            this.lblIsbn1.Location = new System.Drawing.Point(47, 153);
+            this.lblIsbn1.Name = "lblIsbn1";
+            this.lblIsbn1.Size = new System.Drawing.Size(39, 17);
+            this.lblIsbn1.TabIndex = 13;
+            this.lblIsbn1.Text = "ISBN";
+            // 
+            // lblIsbn2
+            // 
+            this.lblIsbn2.AutoSize = true;
+            this.lblIsbn2.Location = new System.Drawing.Point(47, 284);
+            this.lblIsbn2.Name = "lblIsbn2";
+            this.lblIsbn2.Size = new System.Drawing.Size(39, 17);
+            this.lblIsbn2.TabIndex = 14;
+            this.lblIsbn2.Text = "ISBN";
+            // 
+            // lblIsbn3
+            // 
+            this.lblIsbn3.AutoSize = true;
+            this.lblIsbn3.Location = new System.Drawing.Point(47, 415);
+            this.lblIsbn3.Name = "lblIsbn3";
+            this.lblIsbn3.Size = new System.Drawing.Size(39, 17);
+            this.lblIsbn3.TabIndex = 15;
+            this.lblIsbn3.Text = "ISBN";
+            // 
+            // lblIsbn4
+            // 
+            this.lblIsbn4.AutoSize = true;
+            this.lblIsbn4.Location = new System.Drawing.Point(45, 153);
+            this.lblIsbn4.Name = "lblIsbn4";
+            this.lblIsbn4.Size = new System.Drawing.Size(39, 17);
+            this.lblIsbn4.TabIndex = 16;
+            this.lblIsbn4.Text = "ISBN";
+            // 
+            // lblIsbn5
+            // 
+            this.lblIsbn5.AutoSize = true;
+            this.lblIsbn5.Location = new System.Drawing.Point(45, 284);
+            this.lblIsbn5.Name = "lblIsbn5";
+            this.lblIsbn5.Size = new System.Drawing.Size(39, 17);
+            this.lblIsbn5.TabIndex = 17;
+            this.lblIsbn5.Text = "ISBN";
+            // 
+            // lblIsbn6
+            // 
+            this.lblIsbn6.AutoSize = true;
+            this.lblIsbn6.Location = new System.Drawing.Point(45, 415);
+            this.lblIsbn6.Name = "lblIsbn6";
+            this.lblIsbn6.Size = new System.Drawing.Size(39, 17);
+            this.lblIsbn6.TabIndex = 18;
+            this.lblIsbn6.Text = "ISBN";
+            // 
+            // lblIsbn7
+            // 
+            this.lblIsbn7.AutoSize = true;
+            this.lblIsbn7.Location = new System.Drawing.Point(44, 153);
+            this.lblIsbn7.Name = "lblIsbn7";
+            this.lblIsbn7.Size = new System.Drawing.Size(39, 17);
+            this.lblIsbn7.TabIndex = 19;
+            this.lblIsbn7.Text = "ISBN";
+            // 
+            // lblIsbn8
+            // 
+            this.lblIsbn8.AutoSize = true;
+            this.lblIsbn8.Location = new System.Drawing.Point(44, 284);
+            this.lblIsbn8.Name = "lblIsbn8";
+            this.lblIsbn8.Size = new System.Drawing.Size(39, 17);
+            this.lblIsbn8.TabIndex = 20;
+            this.lblIsbn8.Text = "ISBN";
+            // 
+            // lblIsbn9
+            // 
+            this.lblIsbn9.AutoSize = true;
+            this.lblIsbn9.Location = new System.Drawing.Point(44, 415);
+            this.lblIsbn9.Name = "lblIsbn9";
+            this.lblIsbn9.Size = new System.Drawing.Size(39, 17);
+            this.lblIsbn9.TabIndex = 21;
+            this.lblIsbn9.Text = "ISBN";
+            // 
             // LibraryApplicationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1268, 621);
+            this.Controls.Add(this.lblEnterIsbn);
+            this.Controls.Add(this.txtIsbn);
             this.Controls.Add(this.checkPopular);
             this.Controls.Add(this.lblInstructions);
             this.Controls.Add(this.btnSubmit);
@@ -435,6 +554,17 @@
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.Label lblInstructions;
         private System.Windows.Forms.CheckBox checkPopular;
+        private System.Windows.Forms.TextBox txtIsbn;
+        private System.Windows.Forms.Label lblEnterIsbn;
+        private System.Windows.Forms.Label lblIsbn3;
+        private System.Windows.Forms.Label lblIsbn2;
+        private System.Windows.Forms.Label lblIsbn1;
+        private System.Windows.Forms.Label lblIsbn4;
+        private System.Windows.Forms.Label lblIsbn5;
+        private System.Windows.Forms.Label lblIsbn6;
+        private System.Windows.Forms.Label lblIsbn7;
+        private System.Windows.Forms.Label lblIsbn8;
+        private System.Windows.Forms.Label lblIsbn9;
     }
 }
 
