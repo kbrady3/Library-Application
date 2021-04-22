@@ -18,6 +18,15 @@ namespace LibraryApplication
         public LibraryApplicationForm()
         {
             InitializeComponent();
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox2.BackColor = Color.Transparent;
+            pictureBox3.BackColor = Color.Transparent;
+            pictureBox4.BackColor = Color.Transparent;
+            pictureBox5.BackColor = Color.Transparent;
+            pictureBox6.BackColor = Color.Transparent;
+            pictureBox7.BackColor = Color.Transparent;
+            pictureBox8.BackColor = Color.Transparent;
+            pictureBox9.BackColor = Color.Transparent;
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
@@ -31,59 +40,59 @@ namespace LibraryApplication
             try
             {
                 int.Parse(txtIsbn.Text);
-            }
+
+                if (pop)
+                {
+                    l.Popular.Add(txtTitle.Text); //Add to Popular list
+                    isbn.Add(int.Parse(txtIsbn.Text), txtTitle.Text); //Add to ISBN Dictionary
+                    l.Popular.Sort(); //Sort list alphabetically
+
+                    for (int i = 0; i < l.Popular.Count; i++)
+                    {
+                        try
+                        {
+                            if (l.Popular[i] != null)
+                            {
+                                labels[i].Text = l.Popular[i]; //Populate the label on the GUI
+                                var matchingIsbn = isbn.FirstOrDefault(x => x.Value == l.Popular[i]).Key; //Find the ISBN for the current title
+                                isbnLabels[i].Text = matchingIsbn.ToString(); //Display the ISBN
+                            }
+                        }
+                        catch (Exception popularOverflow)
+                        {
+                            MessageBox.Show("You can only add up to 3 popular books.");
+                        }
+                    }
+                }
+                else
+                {
+                    l.Books.Add(txtTitle.Text); //Add to Books list
+                    isbn.Add(int.Parse(txtIsbn.Text), txtTitle.Text); //Add to ISBN Dictionary
+                    l.Books.Sort(); //Sort list alphabetically
+
+                    for (int i = 0; i < l.Books.Count; i++)
+                    {
+                        r += 1;
+
+                            try {
+                                if (l.Books[i] != null)
+                                {
+                                    labels[r].Text = l.Books[i]; //Populate the label on the GUI, starting with labels[r] instead of labels[i] because labels[i] would start at labels[0], and indexes 0-2 are popular books only
+                                    var matchingIsbn = isbn.FirstOrDefault(x => x.Value == l.Books[i]).Key; //Find the ISBN for the current title
+                                    isbnLabels[r].Text = matchingIsbn.ToString(); //Display the ISBN
+                                }
+                            }
+                            catch (Exception booksOverflow)
+                            {
+                                MessageBox.Show("You can only add up to 6 books that aren't popular.");
+                            }
+                        }
+                    }
+                }
             catch (Exception invalidIsbn)
             {
                 MessageBox.Show("ISBN must only be numbers.");
-                throw new ArgumentException();
-            }
-
-            if (pop)
-            {
-                l.Popular.Add(txtTitle.Text); //Add to Popular list
-                isbn.Add(int.Parse(txtIsbn.Text), txtTitle.Text); //Add to ISBN Dictionary
-                l.Popular.Sort(); //Sort list alphabetically
-
-                for (int i = 0; i < l.Popular.Count; i++)
-                {
-                    if (i > 2) //Ensures user won't enter more than 3 popular books
-                    {
-                        MessageBox.Show("You can only add up to 3 popular books.");
-                        throw new ArgumentException();
-                    }
-                    if (l.Popular[i] != null)
-                    {
-                        labels[i].Text = l.Popular[i]; //Populate the label on the GUI
-                        var matchingIsbn = isbn.FirstOrDefault(x => x.Value == l.Popular[i]).Key; //Find the ISBN for the current title
-                        isbnLabels[i].Text = matchingIsbn.ToString(); //Display the ISBN
-                    }
-                }
-            }
-            else
-            {
-                l.Books.Add(txtTitle.Text); //Add to Books list
-                isbn.Add(int.Parse(txtIsbn.Text), txtTitle.Text); //Add to ISBN Dictionary
-                l.Books.Sort(); //Sort list alphabetically
-
-                for (int i = 0; i < l.Books.Count; i++)
-                {
-                    r += 1;
-
-                    if (l.Books[i] != null)
-                    {
-                        if(r > 8) //Ensures user won't enter more than 6 non-popular books
-                        {
-                            MessageBox.Show("You can only add up to 6 books that aren't popular.");
-                            throw new ArgumentException();
-                        }
-                        else
-                        {
-                            labels[r].Text = l.Books[i]; //Populate the label on the GUI, starting with labels[r] instead of labels[i] because labels[i] would start at labels[0], and indexes 0-2 are popular books only
-                            var matchingIsbn = isbn.FirstOrDefault(x => x.Value == l.Books[i]).Key; //Find the ISBN for the current title
-                            isbnLabels[r].Text = matchingIsbn.ToString(); //Display the ISBN
-                        }
-                    }
-                }
+                //throw new ArgumentException();
             }
         }
     }
