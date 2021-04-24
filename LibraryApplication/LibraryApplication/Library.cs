@@ -10,6 +10,7 @@ namespace LibraryApplication
     {
         public List<string> Books = new List<string>();
         public List<string> Popular = new List<string>();
+        public Dictionary<int, string> ISBN = new Dictionary<int, string>(); //Create Dictionary to hold ISBN (key) and title (value)
 
         public Library() { }
 

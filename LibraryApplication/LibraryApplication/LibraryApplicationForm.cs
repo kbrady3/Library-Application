@@ -13,7 +13,6 @@ namespace LibraryApplication
     public partial class LibraryApplicationForm : Form
     {
         Library l = new Library(); //Create a Library object
-        Dictionary<int, string> isbn = new Dictionary<int, string>(); //Create Dictionary to hold ISBN (key) and title (value)
 
         public LibraryApplicationForm()
         {
@@ -43,32 +42,21 @@ namespace LibraryApplication
 
                 if (pop)
                 {
-                    if(l.Popular.Count >= 3)
-                    {
-                        MessageBox.Show("You can only add up to 3 popular books.");
-                    }
-                    else
-                    {
-                        l.Popular.Add(txtTitle.Text); //Add to Popular list
-                        isbn.Add(int.Parse(txtIsbn.Text), txtTitle.Text); //Add to ISBN Dictionary
-                        l.Popular.Sort(); //Sort list alphabetically
+                    AddPopular();
 
-                        for (int i = 0; i < l.Popular.Count; i++)
+                    for (int i = 0; i < l.Popular.Count; i++)
+                    {
+                        if (l.Popular[i] != null)
                         {
-                            if (l.Popular[i] != null)
-                            {
-                                labels[i].Text = l.Popular[i]; //Populate the label on the GUI
-                                var matchingIsbn = isbn.FirstOrDefault(x => x.Value == l.Popular[i]).Key; //Find the ISBN for the current title
-                                isbnLabels[i].Text = matchingIsbn.ToString(); //Display the ISBN
-                            }
+                            labels[i].Text = l.Popular[i]; //Populate the label on the GUI
+                            var matchingIsbn = l.ISBN.FirstOrDefault(x => x.Value == l.Popular[i]).Key; //Find the ISBN for the current title
+                            isbnLabels[i].Text = matchingIsbn.ToString(); //Display the ISBN
                         }
                     }
                 }
                 else
                 {
-                    l.Books.Add(txtTitle.Text); //Add to Books list
-                    isbn.Add(int.Parse(txtIsbn.Text), txtTitle.Text); //Add to ISBN Dictionary
-                    l.Books.Sort(); //Sort list alphabetically
+                    AddRegular();
 
                     for (int i = 0; i < l.Books.Count; i++)
                     {
@@ -78,7 +66,7 @@ namespace LibraryApplication
                                 if (l.Books[i] != null)
                                 {
                                     labels[r].Text = l.Books[i]; //Populate the label on the GUI, starting with labels[r] instead of labels[i] because labels[i] would start at labels[0], and indexes 0-2 are popular books only
-                                    var matchingIsbn = isbn.FirstOrDefault(x => x.Value == l.Books[i]).Key; //Find the ISBN for the current title
+                                    var matchingIsbn = l.ISBN.FirstOrDefault(x => x.Value == l.Books[i]).Key; //Find the ISBN for the current title
                                     isbnLabels[r].Text = matchingIsbn.ToString(); //Display the ISBN
                                 }
                             }
@@ -93,6 +81,34 @@ namespace LibraryApplication
             {
                 MessageBox.Show("ISBN must only be numbers.");
                 //throw new ArgumentException();
+            }
+        }
+
+        public void AddPopular()
+        {
+            if (l.Popular.Count >= 3)
+            {
+                MessageBox.Show("You can only add up to 3 popular books.");
+            }
+            else
+            {
+                l.Popular.Add(txtTitle.Text); //Add to Popular list
+                l.ISBN.Add(int.Parse(txtIsbn.Text), txtTitle.Text); //Add to ISBN Dictionary
+                l.Popular.Sort(); //Sort list alphabetically
+            }
+        }
+
+        public void AddRegular()
+        {
+            if(l.Books.Count >= 6)
+            {
+                MessageBox.Show("You can only add up to 6 books that aren't popular.");
+            }
+            else
+            {
+                l.Books.Add(txtTitle.Text); //Add to Books list
+                l.ISBN.Add(int.Parse(txtIsbn.Text), txtTitle.Text); //Add to ISBN Dictionary
+                l.Books.Sort(); //Sort list alphabetically
             }
         }
     }
