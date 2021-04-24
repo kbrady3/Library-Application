@@ -43,13 +43,17 @@ namespace LibraryApplication
 
                 if (pop)
                 {
-                    l.Popular.Add(txtTitle.Text); //Add to Popular list
-                    isbn.Add(int.Parse(txtIsbn.Text), txtTitle.Text); //Add to ISBN Dictionary
-                    l.Popular.Sort(); //Sort list alphabetically
-
-                    for (int i = 0; i < l.Popular.Count; i++)
+                    if(l.Popular.Count >= 3)
                     {
-                        try
+                        MessageBox.Show("You can only add up to 3 popular books.");
+                    }
+                    else
+                    {
+                        l.Popular.Add(txtTitle.Text); //Add to Popular list
+                        isbn.Add(int.Parse(txtIsbn.Text), txtTitle.Text); //Add to ISBN Dictionary
+                        l.Popular.Sort(); //Sort list alphabetically
+
+                        for (int i = 0; i < l.Popular.Count; i++)
                         {
                             if (l.Popular[i] != null)
                             {
@@ -57,10 +61,6 @@ namespace LibraryApplication
                                 var matchingIsbn = isbn.FirstOrDefault(x => x.Value == l.Popular[i]).Key; //Find the ISBN for the current title
                                 isbnLabels[i].Text = matchingIsbn.ToString(); //Display the ISBN
                             }
-                        }
-                        catch (Exception popularOverflow)
-                        {
-                            MessageBox.Show("You can only add up to 3 popular books.");
                         }
                     }
                 }

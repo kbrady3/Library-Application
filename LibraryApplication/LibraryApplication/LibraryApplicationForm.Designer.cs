@@ -443,14 +443,14 @@
             this.txtTitle.Location = new System.Drawing.Point(994, 286);
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(194, 22);
-            this.txtTitle.TabIndex = 4;
+            this.txtTitle.TabIndex = 0;
             // 
             // btnSubmit
             // 
             this.btnSubmit.Location = new System.Drawing.Point(1113, 432);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(75, 23);
-            this.btnSubmit.TabIndex = 7;
+            this.btnSubmit.TabIndex = 3;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
@@ -469,7 +469,7 @@
             this.checkPopular.Location = new System.Drawing.Point(994, 385);
             this.checkPopular.Name = "checkPopular";
             this.checkPopular.Size = new System.Drawing.Size(181, 21);
-            this.checkPopular.TabIndex = 9;
+            this.checkPopular.TabIndex = 2;
             this.checkPopular.Text = "Check if book is popular";
             this.checkPopular.UseVisualStyleBackColor = true;
             // 
@@ -478,7 +478,7 @@
             this.txtIsbn.Location = new System.Drawing.Point(994, 341);
             this.txtIsbn.Name = "txtIsbn";
             this.txtIsbn.Size = new System.Drawing.Size(194, 22);
-            this.txtIsbn.TabIndex = 10;
+            this.txtIsbn.TabIndex = 1;
             // 
             // lblEnterIsbn
             // 
