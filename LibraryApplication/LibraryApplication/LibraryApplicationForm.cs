@@ -32,9 +32,6 @@ namespace LibraryApplication
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            string titleToAdd = txtTitle.Text;
-            int isbnToAdd = int.Parse(txtIsbn.Text);
-
             bool pop = checkPopular.Checked; //Represents whether the book is popular
             Label[] labels = { lblPopular1, lblPopular2, lblPopular3, lblBook1, lblBook2, lblBook3, lblBook4, lblBook5, lblBook6 };
             Label[] isbnLabels = { lblIsbn1, lblIsbn2, lblIsbn3, lblIsbn4, lblIsbn5, lblIsbn6, lblIsbn7, lblIsbn8, lblIsbn9 };
@@ -91,6 +88,9 @@ namespace LibraryApplication
 
         public void AddPopular()
         {
+            string titleToAdd = txtTitle.Text;
+            int isbnToAdd = int.Parse(txtIsbn.Text);
+
             if (l.Popular.Count >= 3)
             {
                 MessageBox.Show("You can only add up to 3 popular books.");
@@ -105,7 +105,10 @@ namespace LibraryApplication
 
         public void AddRegular()
         {
-            if(l.Books.Count >= 6)
+            string titleToAdd = txtTitle.Text;
+            int isbnToAdd = int.Parse(txtIsbn.Text);
+
+            if (l.Books.Count >= 6)
             {
                 MessageBox.Show("You can only add up to 6 books that aren't popular.");
             }
