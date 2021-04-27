@@ -13,6 +13,8 @@ namespace LibraryApplication
     public partial class LibraryApplicationForm : Form
     {
         Library l = new Library(); //Create a Library object
+        public string titleToAdd = ""; 
+        public int isbnToAdd = 0;
 
         public LibraryApplicationForm()
         {
@@ -30,6 +32,9 @@ namespace LibraryApplication
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
+            string titleToAdd = txtTitle.Text;
+            int isbnToAdd = int.Parse(txtIsbn.Text);
+
             bool pop = checkPopular.Checked; //Represents whether the book is popular
             Label[] labels = { lblPopular1, lblPopular2, lblPopular3, lblBook1, lblBook2, lblBook3, lblBook4, lblBook5, lblBook6 };
             Label[] isbnLabels = { lblIsbn1, lblIsbn2, lblIsbn3, lblIsbn4, lblIsbn5, lblIsbn6, lblIsbn7, lblIsbn8, lblIsbn9 };
@@ -92,8 +97,8 @@ namespace LibraryApplication
             }
             else
             {
-                l.Popular.Add(txtTitle.Text); //Add to Popular list
-                l.ISBN.Add(int.Parse(txtIsbn.Text), txtTitle.Text); //Add to ISBN Dictionary
+                l.Popular.Add(titleToAdd); //Add to Popular list
+                l.ISBN.Add(isbnToAdd, titleToAdd); //Add to ISBN Dictionary
                 l.Popular.Sort(); //Sort list alphabetically
             }
         }
@@ -106,8 +111,8 @@ namespace LibraryApplication
             }
             else
             {
-                l.Books.Add(txtTitle.Text); //Add to Books list
-                l.ISBN.Add(int.Parse(txtIsbn.Text), txtTitle.Text); //Add to ISBN Dictionary
+                l.Books.Add(titleToAdd); //Add to Books list
+                l.ISBN.Add(isbnToAdd, titleToAdd); //Add to ISBN Dictionary
                 l.Books.Sort(); //Sort list alphabetically
             }
         }
