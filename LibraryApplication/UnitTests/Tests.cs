@@ -66,5 +66,18 @@ namespace UnitTests
 
             //Typically there'd be an "assert" here, but this is only asserting that the Message Box pops up with an error (which it does).
         }
+
+        [TestMethod]
+        public void AddDuplicateISBN()
+        {
+            f.titleToAdd = "The Age of the New World";
+            f.isbnToAdd = 1;
+            f.AddRegular();
+
+            f.titleToAdd = "The Age of the Old World";
+            f.isbnToAdd = 1;
+            
+            Assert.ThrowsException<ArgumentException>(() => f.AddRegular()); //Assert throws exception when a duplicate ISBN (1) is added
+        }
     }
 }
